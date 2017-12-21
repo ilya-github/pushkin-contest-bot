@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.10.1"
+lock "~> 3.5.0"
 
 set :application, "pushkin"
 set :repo_url, "git@github.com:ilya-github/pushkin-contest-bot.git"
