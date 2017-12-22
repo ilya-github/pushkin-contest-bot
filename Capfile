@@ -12,7 +12,6 @@ require "capistrano/rails/migrations"
 require "capistrano/sidekiq"
 require "capistrano/puma"
 require "capistrano/puma/nginx"
-
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"
