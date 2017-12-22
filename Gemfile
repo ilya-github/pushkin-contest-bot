@@ -12,7 +12,7 @@ gem 'rails', '~> 5.1.4'
 gem 'sqlite3'
 gem 'mechanize'
 # Use Puma as the app server
-gem 'puma'
+gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -50,7 +50,7 @@ group :development, :test do
 
 end
 group :production do
-gem 'puma'
+gem 'puma', '~> 3.11'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
