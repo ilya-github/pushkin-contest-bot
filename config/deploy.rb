@@ -16,7 +16,7 @@ set :repo_url, "git@github.com:ilya-github/pushkin-contest-bot.git"
 
  set :ssh_option, {:forward_agent => true}
  set :pry, false
- set :rvm_ruby_version, '2.4.0@pushkin-contest-bot'
+ set :rvm_ruby_version, '2.4.1@pushkin-contest-bot'
 
 set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
 set :sidekiq_processes, 2
