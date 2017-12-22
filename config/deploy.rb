@@ -25,6 +25,20 @@ set :sidekiq_role, :sidekiq
 
 set :puma_preload_app, true
 set :puma_init_active_record, true
+
+
+namespace :puma do
+  desc 'Create Directories for Puma Pids and Socket'
+  task :make_dirs do
+    on roles(:app) do
+      execute "mkdir #{shared_path}/tmp/sockets -p"
+      execute "mkdir #{shared_path}/tmp/pids -p"
+    end
+  end
+
+  before :start, :make_dirs
+end
+
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
