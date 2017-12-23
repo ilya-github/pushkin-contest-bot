@@ -25,9 +25,9 @@ set :sidekiq_role, :sidekiq
 
 set :puma_preload_app, true
 set :puma_init_active_record, true
-set :puma_bind,       "unix:///var/www/pushkin/tmp/sockets/#{fetch(:application)}-puma.sock"
-set :puma_state,      "var/www/pushkin/tmp/pids/puma.state"
-set :puma_pid,        "var/www/pushkin/tmp/pids/puma.pid"
+set :puma_bind,       "unix:///var/www/pushkin/shared/tmp/sockets/puma.sock"
+set :puma_state,      "var/www/pushkin/shared/tmp/pids/puma.state"
+set :puma_pid,        "var/www/pushkin/shared/tmp/pids/puma.pid"
 
 
 
