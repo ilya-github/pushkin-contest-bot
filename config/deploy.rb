@@ -34,6 +34,13 @@ set :sidekiq_processes, 2
 set :sidekiq_log, "#{current_path}/log/sidekiq.log"
 set :sidekiq_role, :sidekiq
 
+set :puma_preload_app, true
+set :puma_init_active_record, true
+set :puma_bind,       "unix:///var/www/pushkin-contest-bot/shared/tmp/sockets/puma.sock"
+set :puma_state,      "var/www/pushkin-contest-bot/shared/tmp/pids/puma.state"
+set :puma_pid,        "var/www/pushkin-contest-bot/shared/tmp/pids/puma.pid"
+
+
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
 
