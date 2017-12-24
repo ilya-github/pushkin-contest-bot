@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,7 +46,7 @@ end
 
 
 group :development do
-  gem 'capistrano', '~> 3.10.1'
+  gem 'capistrano', '~> 3.7.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
