@@ -40,18 +40,15 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 
-  gem 'capistrano', '~> 3.7.2'
+  gem 'capistrano', '~> 3.7.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
-  gem 'capistrano-sidekiq'
-  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
   gem 'capistrano-db-tasks', require: false
 end
 
-group :production do
-  gem 'puma', '~> 3.7'
-end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

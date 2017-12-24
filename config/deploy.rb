@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.7.2"
+lock "~> 3.7.0"
 
 set :application, "pushkin-contest-bot"
 set :repo_url, "git@github.com:ilya-github/pushkin-contest-bot.git"
@@ -9,7 +9,7 @@ set :repo_url, "git@github.com:ilya-github/pushkin-contest-bot.git"
 
 # Default deploy_to directory is /var/www/my_app_name
  set :deploy_to, "/var/www/pushkin-contest-bot"
-
+ set :stage, :production
  set :linked_files, %w{config/database.yml}
 
  set :linked_dirs, %w{log tmp/pids public/assets tmp/cache tmp/sockets vendor/bundle public/system}
