@@ -3,8 +3,8 @@ class VerseController < ApplicationController
 
   end
   def v_post
-  	puts request['question']
-  	logger.info('initialize') { "IXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" }
+  	
+  	logger.info('initialize') { request['question'] }
   end
 
 end
