@@ -40,13 +40,17 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 
-  gem 'capistrano', '~> 3.7.0'
+  gem 'capistrano', '~> 3.10.1'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
   gem 'capistrano-sidekiq'
   gem 'capistrano3-puma', github: "seuros/capistrano-puma"
   gem 'capistrano-db-tasks', require: false
+end
+
+group :production do
+  gem 'puma', '~> 3.7'
 end
 
 group :development do
