@@ -10,7 +10,7 @@ set :repo_url, "git@github.com:ilya-github/pushkin-contest-bot.git"
 # Default deploy_to directory is /var/www/my_app_name
  set :deploy_to, "/var/www/pushkin-contest-bot"
 
- set :linked_files, %w{config/database.yml config/redis.yml}
+ set :linked_files, %w{config/database.yml}
 
  set :linked_dirs, %w{log tmp/pids public/assets tmp/cache tmp/sockets vendor/bundle public/system}
 
