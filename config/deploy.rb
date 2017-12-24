@@ -27,7 +27,7 @@ set :deploy_to, "/var/www/pushkin-contest-bot"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 # Default value for default_env is {}
- set :default_env, { path: "/opt/ruby/bin:$PATH" }
+ #set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
 set :sidekiq_processes, 2
