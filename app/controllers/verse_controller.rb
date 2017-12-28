@@ -14,7 +14,7 @@ class VerseController < ApplicationController
       end
     end
     hash.each do |key, value|
-      Verse.create title: key, text: value
+      Verse.create(:title => key, :text => value)
     end
   end
 
