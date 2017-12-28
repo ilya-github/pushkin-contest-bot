@@ -1,5 +1,3 @@
- require 'net/http'
- require 'uri' 
 class VerseController < ApplicationController
   skip_before_action :verify_authenticity_token
   def created_verse
@@ -18,16 +16,15 @@ class VerseController < ApplicationController
     
     end
   	#puts "{ 'answer'  => '#{@answer}',  'token'   => #{@API_KEY},  'task_id' => #{@TASK_ID} }"
-  	url = "http://pushkin.rubyroidlabs.com/quiz"
-
- uri = URI.parse(url)
- http = Net::HTTP.new(uri.host, uri.port)
- request = Net::HTTP::Post.new(uri.request_uri)
- parameters =  {"answer"=>"#{@answer}", "token"=>@API_KEY, "task_id"=> @TASK_ID}
- request.set_form_data(parameters)    
- response = http.request(request)
-
- logger.info @TASK_ID
+  	uri = URI("http://pushkin.rubyroidlabs.com/quiz")
+parameters = {
+  answer: @answer,
+  token: @API_KEY,
+  task_id:  @TASK_ID
+}
+Net::HTTP.post_form(uri, parameters)
+ logger.info " answer = #{@answer}" 
+ logger.info "task id = #{@TASK_ID}"
     #str = "Уровень: " + request['level'] + ". Строка вопроса: " + request['question'] + ". Строка ответа: " +  @answer
     #Log.create(:text => "Hello")
   end
