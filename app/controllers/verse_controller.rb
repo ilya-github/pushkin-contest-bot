@@ -1,7 +1,27 @@
 class VerseController < ApplicationController
   skip_before_action :verify_authenticity_token
   def created_verse
+    10.times do |i|
+      Verse.create title: 'Verrse'+i.to_s, text: 'Text'+i.to_s
+    end
+    agent = Mechanize.new
+    ulr = 'https://istihi.ru'
+    hash = Hash.new
+    page = agent.get(ulr + '/pushkin')
+    review_links_albums = page.search('.dotted li a')
+    review_links_albums.each do |l|
+      page1= agent.get(ulr+l.attr(:href))
+      review_links_albums1 = page1.search('.poem-text')
+      review_links_albums1.each do |l1|
+        hash[l.text] = l1.text
+      end
+    end
+    hash.each do |key, value|
+      Verse.create title: key, text: value
+    end
   end
+
+end
   
   def v_post
     @API_KEY = '5745edbd23c3b934a93c8dcacfe93ceb'
