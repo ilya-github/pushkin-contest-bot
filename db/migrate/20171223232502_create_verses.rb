@@ -1,6 +1,6 @@
 class CreateVerses < ActiveRecord::Migration[5.1]
   def change
-    create_table :verse do |t|
+    create_table :verses do |t|
       t.string :title
       t.text :text
 
