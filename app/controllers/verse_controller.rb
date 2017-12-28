@@ -1,5 +1,5 @@
 class VerseController < ApplicationController
-
+  skip_before_action :verify_authenticity_token
   def created_verse
   end
   
