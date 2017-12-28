@@ -1,9 +1,6 @@
 class VerseController < ApplicationController
   skip_before_action :verify_authenticity_token
   def created_verse
-    10.times do |i|
-      Verse.create title: 'Verrse'+i.to_s, text: 'Text'+i.to_s
-    end
     agent = Mechanize.new
     ulr = 'https://istihi.ru'
     hash = Hash.new
@@ -21,8 +18,7 @@ class VerseController < ApplicationController
     end
   end
 
-end
-  
+ 
   def v_post
     @API_KEY = '5745edbd23c3b934a93c8dcacfe93ceb'
   	@TASK_ID = request['id']
