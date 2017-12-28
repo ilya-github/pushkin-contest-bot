@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get '/quiz', to: 'verse#index'
     get '/logs', to: 'logs#index'
     get '/pushkin', to: 'verse#created_verse'
+    get '/delP', to: 'verse#del_log'
     post '/quiz', to: 'verse#v_post'
   root 'logs#index'
 end

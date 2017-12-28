@@ -17,7 +17,9 @@ class VerseController < ApplicationController
       Verse.create(:title => key, :text => value)
     end
   end
-
+ def del_log
+  Log.delete_all
+ end 
  
   def v_post
     @API_KEY = '5745edbd23c3b934a93c8dcacfe93ceb'
@@ -26,6 +28,7 @@ class VerseController < ApplicationController
   	
     if(request['level'] == 1)
       question = request['question']
+      question = question.lstrip.rstrip
 	  question.gsub!('%WORD%','%%')
       result = Verse.where( 'text LIKE ?', '%'+question+'%' )
       unless result.first.blank? then @answer = result.first.title end
@@ -43,7 +46,8 @@ parameters = {
 Net::HTTP.post_form(uri, parameters)
 
     #str = "Уровень: " + request['level'] + ". Строка вопроса: " + request['question'] + ". Строка ответа: " +  @answer
-    #Log.create(:text => "Hello")
+   str = request['question'] + "::::: " + @answer
+  Log.create(:text => str)
   end
 
 end
