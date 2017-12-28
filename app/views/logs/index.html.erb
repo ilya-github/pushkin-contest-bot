@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+  	 <div class="col-md-12 text-center">
+<h1>История запросов</h1>
+</div>
+<div class="col-md-12">
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Номер</th>
+      <th>Дата и время</th>
+      <th>Инофрмация</th>
+
+    </tr>
+  </thead>
+  <tbody>
+<%= render @logs %>
+  </tbody>
+</table>
+</div>
+<div class="col-md-12 text-center">
+<%= will_paginate @logs, renderer: 'BootstrapPaginationHelper::LinkRenderer' %>
+</div>
+</div>
+</div>
+
