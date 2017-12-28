@@ -23,9 +23,9 @@ parameters = {
   task_id:  @TASK_ID
 }
 Net::HTTP.post_form(uri, parameters)
-
+ logger.info @API_KEY
     #str = "Уровень: " + request['level'] + ". Строка вопроса: " + request['question'] + ". Строка ответа: " +  @answer
-    Log.create(:text => "Hello")
+    #Log.create(:text => "Hello")
   end
 
 end
