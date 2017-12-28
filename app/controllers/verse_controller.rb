@@ -24,7 +24,7 @@ class VerseController < ApplicationController
   	@TASK_ID = request['id']
   	@answer = "Илья"
   	
-    if(request['level'] == '1')
+    if(request['level'] == 1)
       question = request['question']
 	  question.gsub!('%WORD%','%%')
       result = Verse.where( 'text LIKE ?', '%'+question+'%' )
