@@ -31,16 +31,17 @@ class VerseController < ApplicationController
       unless result.first.blank? then @answer = result.first.title end
     
     end
+     logger.info " answer = #{@answer}" 
+ logger.info "task id = #{@TASK_ID}"
   	#puts "{ 'answer'  => '#{@answer}',  'token'   => #{@API_KEY},  'task_id' => #{@TASK_ID} }"
   	uri = URI("http://pushkin.rubyroidlabs.com/quiz")
 parameters = {
-  answer: @answer,
+  answer: "#{@answer}",
   token: @API_KEY,
   task_id:  @TASK_ID
 }
 Net::HTTP.post_form(uri, parameters)
- logger.info " answer = #{@answer}" 
- logger.info "task id = #{@TASK_ID}"
+
     #str = "Уровень: " + request['level'] + ". Строка вопроса: " + request['question'] + ". Строка ответа: " +  @answer
     #Log.create(:text => "Hello")
   end
