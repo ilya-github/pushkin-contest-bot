@@ -18,14 +18,14 @@ class VerseController < ApplicationController
   	#puts "{ 'answer'  => '#{@answer}',  'token'   => #{@API_KEY},  'task_id' => #{@TASK_ID} }"
   	uri = URI("http://pushkin.rubyroidlabs.com/quiz")
 parameters = {
-  answer: '#{@answer}',
+  answer: @answer,
   token: @API_KEY,
   task_id:  @TASK_ID
 }
 Net::HTTP.post_form(uri, parameters)
 
-    str = "Уровень: " + request['level'] + ". Строка вопроса: " + request['question'] + ". Строка ответа: " +  @answer
-    Log.create(:text => str)
+    #str = "Уровень: " + request['level'] + ". Строка вопроса: " + request['question'] + ". Строка ответа: " +  @answer
+    Log.create(:text => "Hello")
   end
 
 end
