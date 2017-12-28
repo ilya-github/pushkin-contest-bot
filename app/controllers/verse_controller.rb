@@ -4,7 +4,7 @@ class VerseController < ApplicationController
   end
   
   def v_post
-    @API_KEY = "5745edbd23c3b934a93c8dcacfe93ceb"
+    @API_KEY = '5745edbd23c3b934a93c8dcacfe93ceb'
   	@TASK_ID = request['id']
   	@answer = "Илья"
   	
