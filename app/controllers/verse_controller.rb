@@ -28,7 +28,7 @@ class VerseController < ApplicationController
   	
     if(request['level'] == 1)
       question = request['question']
-      question = question.lstrip.rstrip
+      question = question
 	  question.gsub!('%WORD%','%%')
       result = Verse.where( 'text LIKE ?', '%'+question+'%' )
       unless result.first.blank? then @answer = result.first.title end
@@ -41,6 +41,29 @@ class VerseController < ApplicationController
       result.first.text.split("\r\n").each do |e| 
         unless e.scan(/#{position_one}/).blank? then @answer =e.scan(/#{position_one}/)[0][0] end
       end
+        elsif(request['level'] == 3)
+      question = request['question']
+      question = question.gsub("\n","\r\n")
+    question = question.gsub('%WORD%','%%')
+    word_one = ""
+    word_second = ""
+    search = "%%"
+    arr_pos = []
+      question.split(' ').each_index do |x|
+        if question.split(' ')[x] == search then arr_pos.push(x) end
+      end
+      result = Verse.where( 'text LIKE ?', '%'+question+'%' )
+      unless result.first.blank?
+        position_one = request['question'].split("\n").first.sub("%WORD%","(\w+|[а-яА-Я]+)")
+        position_second = request['question'].split("\n").at(1).sub("%WORD%","(\w+|[а-яА-Я]+)")
+        result.first.text.split("\r\n").each do |e| 
+          unless e.scan(/#{position_one}/).blank? then word_one =e.scan(/#{position_one}/)[0][0] end
+          unless e.scan(/#{position_second}/).blank? then word_second =e.scan(/#{position_second}/)[0][0] end
+        end
+      end
+      @answer = "#{word_one},#{word_second}"
+
+
  
     end
 
