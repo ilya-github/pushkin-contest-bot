@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20171228102849) do
   create_table "verses", force: :cascade do |t|
     t.string "title"
     t.text "text"
+    t.text "text1"
+    t.text "text2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
