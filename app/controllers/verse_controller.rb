@@ -205,7 +205,7 @@ class VerseController < ApplicationController
     }
     Net::HTTP.post_form(uri, parameters)
     #str = "Уровень: " + request['level'] + ". Строка вопроса: " + request['question'] + ". Строка ответа: " +  @answer
-   str = "lvl:" +request['level'] + " " + request['question'] + "<==> " + @answer
+   str = request['question'] + "<==> " + @answer
    Log.create(:text => str)
   end
 end
